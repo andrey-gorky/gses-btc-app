@@ -1,0 +1,31 @@
+version: '3.8'
+
+networks:
+  backend:
+    name: dev
+    driver: bridge
+
+services:
+  app:
+    build: .
+    container_name: app-btc-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo-btc-app
+    networks:
+      - backend
+
+  mongo-btc-app:
+    image: mongo:4.2
+    container_name: mongo-btc-app
+    restart: unless-stopped
+    networks:
+      - backend
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

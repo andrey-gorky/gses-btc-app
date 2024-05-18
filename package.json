@@ -1,0 +1,22 @@
+{
+  "name": "gses-btc-app",
+  "version": "1.0.0",
+  "description": "GSES BTC application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "andrii.horkavyi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "koa": "^2.15.3",
+    "koa-body": "^6.0.1",
+    "koa-router": "^12.0.1",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
