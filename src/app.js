@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { koaBody } = require('koa-body');
 const rate = require('./routes/rate');
 const subscription = require('./routes/subscription');
+const emailJob = require('../jobs/emailJob');
 
 const app = new Koa();
 const router = new Router();
@@ -24,6 +25,9 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
+
+  console.info('Setting up email daily job...');
+  emailJob.start();
 });
 
 const PORT = process.env.PORT || 3000;

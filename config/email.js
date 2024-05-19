@@ -1,9 +1,14 @@
+const email = process.env.EMAIL_ADDRESS;
+const pass = process.env.EMAIL_PASSWORD;
+
 module.exports = {
-  service: 'gmail',
+  host: 'smtp.ukr.net',
+  port: 465,
+  secure: true,
   auth: {
-    user: 'your-email@gmail.com',
-    pass: 'your-email-password'
+    user: email,
+    pass: pass,
   },
-  from: 'your-email@gmail.com',
-  subject: 'Current USD to UAH Rate'
+  from: email,
+  subject: 'Current USD to UAH Rate',
 };
