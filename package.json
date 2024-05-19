@@ -9,14 +9,18 @@
   "author": "andrii.horkavyi",
   "license": "ISC",
   "dependencies": {
+    "@jest/globals": "^29.7.0",
     "axios": "^1.6.8",
     "koa": "^2.15.3",
     "koa-body": "^6.0.1",
     "koa-router": "^12.0.1",
-    "mongoose": "^8.4.0"
+    "mongoose": "^8.4.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.13",
+    "npm": "^10.8.0",
+    "supertest": "^7.0.0"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "supertest": "^7.0.0"
+    "jest": "^29.7.0"
   }
 }

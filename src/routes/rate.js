@@ -3,6 +3,6 @@ const rateController = require('../controllers/rate');
 
 const router = new Router();
 
-router.get('/', rateController.getRate);
+router.get('/', rateController.getExchangeRate);
 
 module.exports = router;

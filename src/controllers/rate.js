@@ -1,13 +1,18 @@
-const axios = require('axios');
+const getExchangeRate = require('../managers/getExchangeRate');
 
-exports.getRate = async (ctx) => {
+exports.getExchangeRate = async (ctx, next) => {
+  let body = { error: 'Failed to fetch rate' };
   try {
-    const response = await axios.get('https://api.exchangerate-api.com/v4/latest/USD');
-    const rate = response.data.rates.UAH;
-    ctx.status = 200;
-    ctx.body = rate;
+    const rate = await getExchangeRate();
+    if (rate) {
+      ctx.status = 200;
+      ctx.body = { rate };
+      await next()
+    }
   } catch (error) {
-    ctx.status = 400;
-    ctx.body = { error: 'Failed to fetch rate' };
+    console.error(error);
   }
+
+  ctx.status = 400;
+  ctx.body = body;
 };
